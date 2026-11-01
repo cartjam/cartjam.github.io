@@ -1,0 +1,29 @@
+# cartjam.github.io
+
+The page that puts cartjam on a console: [cartjam.github.io](https://cartjam.github.io). Choose a console, a release and free games, then write the card with Etcher or `flash.sh`. It's plain HTML, CSS and JavaScript with no build step, and it loads nothing from other sites except the release list from GitHub's API.
+
+## Adding things
+
+- **A release:** a GitHub release in this repo with the image compressed by xz (Etcher reads xz but not zstd) and its checksum. The page finds it by the file name, `cartjam-<console>-<tag>.img.xz`:
+
+  ```sh
+  xz -T0 -c cartjam-image-k36.rootfs.wic > cartjam-k36-v0.1.0.img.xz
+  shasum -a 256 cartjam-k36-v0.1.0.img.xz > cartjam-k36-v0.1.0.img.xz.sha256
+  gh release create v0.1.0 cartjam-k36-v0.1.0.img.xz cartjam-k36-v0.1.0.img.xz.sha256 --title 0.1.0 --notes "..."
+  ```
+
+  A release image must not carry the bring-up pieces (`cartjam-bringup`, passwordless root) or anyone's commercial games.
+
+- **A console:** an entry in `data/consoles.json`. `status` is `available` or `pending`.
+- **A game:** an entry in `data/games.json`, only with a license that lets people share it. Downloads stay on the author's own page. `tested: true` once it has run on a console.
+- **A platform:** set its `status` to `available` in `data/games.json` once the image has its emulator.
+
+## Trying it
+
+```sh
+python3 -m http.server
+```
+
+## Licenses
+
+The page's code and `flash.sh` are under the MIT license (`LICENSE`). The fonts are under the SIL Open Font License (`assets/fonts`). The cartjam name and logos are not covered by it, and the game screenshots belong to the games' authors.

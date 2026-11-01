@@ -1,0 +1,46 @@
+{
+  "platforms": [
+    { "id": "psp", "name": "PSP", "status": "available", "folder": "psp" },
+    { "id": "psx", "name": "PlayStation", "status": "pending" },
+    { "id": "n64", "name": "Nintendo 64", "status": "pending" },
+    { "id": "gba", "name": "Game Boy Advance", "status": "pending" },
+    { "id": "gbc", "name": "Game Boy Color", "status": "pending" },
+    { "id": "gb", "name": "Game Boy", "status": "pending" },
+    { "id": "snes", "name": "SNES", "status": "pending" },
+    { "id": "nes", "name": "NES", "status": "pending" },
+    { "id": "megadrive", "name": "Mega Drive", "status": "pending" },
+    { "id": "mastersystem", "name": "Master System", "status": "pending" },
+    { "id": "gamegear", "name": "Game Gear", "status": "pending" },
+    { "id": "pcengine", "name": "PC Engine", "status": "pending" }
+  ],
+  "games": [
+    {
+      "id": "oceanpop",
+      "platform": "psp",
+      "name": "OceanPop",
+      "by": "sharkwouter",
+      "about": "A relaxing match-3 puzzle game with a twist.",
+      "version": "2.0",
+      "license": "MIT, with credited art and music",
+      "size": 28203233,
+      "sha256": "47130c0e40eb9acb71902963dcd1c36e422ec283a61656b9dd16705d101edd2a",
+      "download": "https://github.com/sharkwouter/oceanpop/releases/download/2.0/oceanpop-psp.zip",
+      "source": "https://github.com/sharkwouter/oceanpop",
+      "shot": "assets/img/games/oceanpop.jpg"
+    },
+    {
+      "id": "opensupaplex",
+      "platform": "psp",
+      "name": "OpenSupaplex",
+      "by": "Sergio Padrino",
+      "about": "The classic Supaplex, rebuilt for today's consoles: dig, dodge and collect across its levels.",
+      "version": "7.2.2",
+      "license": "GPL-3.0, with the original game's freeware resources",
+      "size": 5038192,
+      "sha256": "346fd0c62b3c601cc1c2476a58b6cb0d9ee07056f45ed682aaa3696b8e98c380",
+      "download": "https://github.com/sergiou87/open-supaplex/releases/download/v7.2.2/OpenSupaplex-psp.zip",
+      "source": "https://github.com/sergiou87/open-supaplex",
+      "shot": "assets/img/games/opensupaplex.jpg"
+    }
+  ]
+}

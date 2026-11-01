@@ -1,0 +1,5 @@
+[
+  { "id": "k36", "name": "K36", "chip": "Rockchip RK3326", "screen": "640 × 480", "shape": "wide", "status": "available", "picture": "assets/img/home-k36.png" },
+  { "id": "r36s", "name": "R36S", "chip": "Rockchip RK3326", "screen": "640 × 480", "shape": "wide", "status": "pending" },
+  { "id": "r36max", "name": "R36MAX", "chip": "Rockchip RK3326", "screen": "720 × 720", "shape": "square", "status": "pending" }
+]
