@@ -3,87 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>cartjam: put it on your console</title>
-<meta name="description" content="Choose your handheld, a cartjam release and free games, then write it to an SD card.">
+<title>cartjam: a handheld OS, and a place to make and share games</title>
+<meta name="description" content="cartjam replaces the software on budget retro handhelds: a home screen that feels new, a boot you can watch, and only games you're allowed to share.">
 <meta name="theme-color" content="#17151F">
 <meta property="og:title" content="cartjam">
 <meta property="og:description" content="A handheld OS, and a place to make and share games.">
 <meta property="og:image" content="https://cartjam.github.io/assets/img/social-preview.png">
 <link rel="icon" href="favicon.ico">
 <link rel="preload" href="assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/LilitaOne.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/landing.css">
 </head>
 <body>
 <header class="top">
   <a class="brand" href="./"><img src="assets/img/mark.svg" alt="" width="30" height="37"><img src="assets/img/wordmark-dark.svg" alt="cartjam" height="26"></a>
+  <nav aria-label="Sections">
+    <a href="#features">What's in it</a>
+    <a href="#makers">Makers</a>
+    <a class="button" href="flash.html">Install</a>
+  </nav>
 </header>
 
-<main>
-  <section class="intro">
-    <h1>Put cartjam on your&nbsp;console</h1>
-    <p>Pick your handheld and a release, add some free games, and write it all to a microSD&nbsp;card.</p>
+<main class="landing">
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow"><span class="tag good">In development</span> First console: K36</p>
+      <h1>A handheld OS, and a place to make and share&nbsp;games.</h1>
+      <p class="lede">cartjam replaces the software on budget retro handhelds. You get a home screen that feels new, a boot you can watch, and only games you're allowed to share.</p>
+      <p class="actions"><a class="button big" href="#notify">Hear about the first release</a> <a href="flash.html">How to install</a></p>
+    </div>
+    <!-- The K36 as the install page draws it (assets/site.js), with cartjam's screens on it -->
+    <figure class="device">
+      <div class="console">
+      <svg viewBox="0 0 460 238" aria-hidden="true">
+        <rect x="26" y="0" width="74" height="24" rx="10" fill="#17151f"/><rect x="360" y="0" width="74" height="24" rx="10" fill="#17151f"/>
+        <rect x="4.5" y="8.5" width="451" height="229" rx="30" fill="#2b2838" stroke="#fff3df" stroke-opacity="0.16"/>
+        <rect x="105.5" y="20" width="249" height="190" rx="9" fill="#0e0d13"/>
+        <path d="M49.25 53.9h14v15h15v14h-15v15h-14v-15h-15v-14h15z" fill="#17151f"/>
+        <circle cx="56.25" cy="165.6" r="17" fill="#17151f"/><circle cx="56.25" cy="165.6" r="12" fill="#454152"/>
+        <g font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600" fill="#fff3df" text-anchor="middle">
+          <circle cx="403.75" cy="54.9" r="9" fill="#e0245e"/><text x="403.75" y="58.4">X</text>
+          <circle cx="403.75" cy="96.9" r="9" fill="#e0245e"/><text x="403.75" y="100.4">B</text>
+          <circle cx="382.75" cy="75.9" r="9" fill="#e0245e"/><text x="382.75" y="79.4">Y</text>
+          <circle cx="424.75" cy="75.9" r="9" fill="#e0245e"/><text x="424.75" y="79.4">A</text>
+        </g>
+        <circle cx="403.75" cy="165.6" r="17" fill="#17151f"/><circle cx="403.75" cy="165.6" r="12" fill="#454152"/>
+        <rect x="46.25" y="221" width="20" height="5" rx="2.5" fill="#17151f"/><rect x="381.75" y="221" width="18" height="5" rx="2.5" fill="#17151f"/><rect x="407.75" y="221" width="18" height="5" rx="2.5" fill="#17151f"/>
+      </svg>
+      <div class="screens">
+        <img src="assets/img/screens/boot.webp" alt="The boot screen: the cartjam mark and a progress bar" data-caption="Starting up" data-ms="1800">
+        <img src="assets/img/screens/boot-msg.webp" alt="The boot screen saying: Preparing your games, first start only" data-caption="First start" data-ms="2200">
+        <img class="on" src="assets/img/screens/drawer.webp" alt="The quick-settings drawer with Wi-Fi, Bluetooth, brightness, volume, music and power modes" data-caption="Quick settings" data-ms="3600">
+        <img src="assets/img/screens/profile.webp" alt="The profile: hours played, most played games and last played" data-caption="Your profile" data-ms="3600">
+        <img src="assets/img/screens/update.webp" alt="An update asking: Install version 0.2.0?" data-caption="Updates" data-ms="3600">
+      </div>
+      </div>
+      <figcaption><b id="screen-caption">Quick settings</b> Real cartjam screens, recorded in a simulator. Photos from a K36 follow once it runs there.</figcaption>
+    </figure>
   </section>
 
-  <div class="layout">
-    <aside class="card-summary" aria-live="polite">
-      <div class="console-picture" id="picture"></div>
-      <dl>
-        <div><dt>Console</dt><dd id="sum-console">–</dd></div>
-        <div><dt>Release</dt><dd id="sum-release">–</dd></div>
-        <div><dt>Free games</dt><dd id="sum-games">–</dd></div>
-      </dl>
-    </aside>
-
-    <div class="steps">
-      <section class="step">
-        <h2><span class="n">1</span>Your console</h2>
-        <div class="choices consoles" id="consoles" role="radiogroup" aria-label="Console"></div>
-      </section>
-
-      <section class="step">
-        <h2><span class="n">2</span>Release</h2>
-        <div class="choices" id="releases" role="radiogroup" aria-label="Release"><p class="note">Looking for releases…</p></div>
-      </section>
-
-      <section class="step">
-        <h2><span class="n">3</span>Free games</h2>
-        <p class="note">Free to play and share under their authors' licenses. Greyed-out platforms are pending: they join the list as cartjam gets their emulators.</p>
-        <div class="tabs" id="platforms" role="tablist" aria-label="Platform"></div>
-        <div class="games" id="games"></div>
-      </section>
-
-      <section class="step">
-        <h2><span class="n">4</span>Write the card</h2>
-        <p class="note">A web page isn't allowed to write to an SD card directly, so this step uses a small free tool on your computer.</p>
-        <div class="tabs" id="methods" role="tablist" aria-label="How to write the card">
-          <button role="tab" data-method="etcher" aria-selected="true">Etcher</button>
-          <button role="tab" data-method="terminal" aria-selected="false">Terminal</button>
-        </div>
-        <div id="method-etcher">
-          <ol class="howto">
-            <li><a class="button" id="download" href="#" aria-disabled="true">Download the release</a> <span class="note" id="download-note"></span></li>
-            <li>Install <a href="https://etcher.balena.io">balenaEtcher</a>, open it and choose <b>Flash from file</b>.</li>
-            <li>Pick the file you downloaded, pick your microSD card, and press <b>Flash</b>. It erases the card.</li>
-          </ol>
-        </div>
-        <div id="method-terminal" hidden>
-          <p class="note">For macOS and Linux. It only offers removable disks, checks the download and asks before erasing. It needs <code>xz</code>, which macOS gets with <code>brew install xz</code>.</p>
-          <div class="command"><code id="command">Choose a release first</code><button class="copy" id="copy" type="button">Copy</button></div>
-        </div>
-        <h3>Then, on the console</h3>
-        <ol class="howto">
-          <li>Put the card in the first slot and switch the console on. The first boot makes a drive called <b>GAMES</b>, then shows the home screen.</li>
-          <li id="copy-games">Switch off, put the card back in your computer, and unzip your games into the <code>psp</code> folder on <b>GAMES</b>.</li>
-        </ol>
-      </section>
+  <section id="features">
+    <h2>What's in it</h2>
+    <p class="note legend"><span class="tag good">Ready</span> runs in the simulator today <span class="tag coming">Coming</span> written, not run yet <span class="tag">Planned</span> on the roadmap</p>
+    <div class="features">
+      <article><h3>Glass home screen <span class="tag good">Ready</span></h3><p>Your games on a shelf, a quick-settings drawer you pull down like on a phone, and a profile with your play time.</p></article>
+      <article><h3>A boot you can watch <span class="tag good">Ready</span></h3><p>The cartjam mark and a progress bar from the first seconds, with a line about what's happening, until the home screen is up.</p></article>
+      <article><h3>One gamepad, no setup <span class="tag good">Ready</span></h3><p>Buttons and sticks act as one controller, so games and emulators work without mapping. FN + Start leaves any game.</p></article>
+      <article><h3>PSP games and homebrew <span class="tag good">Ready</span></h3><p>PPSSPP is built in, and the install page offers free games straight from their authors.</p></article>
+      <article><h3>Power modes <span class="tag good">Ready</span></h3><p>Saver, Balanced or Performance from the drawer, and battery states you can read at a glance.</p></article>
+      <article><h3>Updates with a safety net <span class="tag coming">Coming</span></h3><p>Two copies of the system. An update installs to the spare one, and the console goes back to the old one if the new one doesn't start.</p></article>
+      <article><h3>A store for makers <span class="tag">Planned</span></h3><p>Share or sell games you made to people who own the same handheld.</p></article>
+      <article><h3>Wi-Fi and Bluetooth <span class="tag">Planned</span></h3><p>Joining networks and pairing controllers from the drawer, on consoles that have them.</p></article>
     </div>
-  </div>
+  </section>
+
+  <section id="install" class="split">
+    <div>
+      <h2>Three steps to put it on your console</h2>
+      <p class="note">There's no release yet. The install page lists it as soon as there is one.</p>
+      <p><a class="button" href="flash.html">Open the install page</a></p>
+    </div>
+    <ol class="steps-list">
+      <li><span class="n">1</span><p>Pick your console and a release on the install page.</p></li>
+      <li><span class="n">2</span><p>Write it to a microSD card with Etcher, or with one command on macOS or Linux.</p></li>
+      <li><span class="n">3</span><p>Put the card in the first slot and switch on. The first boot makes a <b>GAMES</b> drive, then shows the home screen.</p></li>
+    </ol>
+  </section>
+
+  <section class="split two-panels">
+    <article id="makers" class="panel">
+      <h2>Made a game? Play it on a handheld.</h2>
+      <p>cartjam's home screen is itself written in LÖVE, the Lua game framework, and every cartjam console runs LÖVE out of the box. That's where making games for it starts.</p>
+      <ul class="plain">
+        <li>A package format and SDK for handheld games <span class="tag">Planned</span></li>
+        <li>A store where makers set the price <span class="tag">Planned</span></li>
+        <li>The cartjam Jam, a game jam for handheld-sized games <span class="tag">Planned</span></li>
+      </ul>
+    </article>
+    <article id="fair" class="panel">
+      <h2>Only games you're allowed to share</h2>
+      <p>cartjam ships emulators, never games or BIOS files you don't own, and never links to copies of commercial games. The free games on the install page come from their authors' own pages, with their licenses and credits.</p>
+    </article>
+  </section>
+
+  <section id="notify" class="panel notify">
+    <div>
+      <h2>Hear about the first release</h2>
+      <p>There's no mailing list, so there's nothing to sign up for. To hear when the first release is out, watch this site on GitHub: choose <b>Watch</b>, then <b>Custom</b>, then <b>Releases</b>.</p>
+      <p><a class="button" href="https://github.com/cartjam/cartjam.github.io">Watch on GitHub</a></p>
+    </div>
+    <div id="follow" hidden>
+      <h3>Follow the build</h3>
+      <ul class="social" id="social"></ul>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <p class="note">No cookies, no tracking. The release list comes straight from GitHub, which sees your address when your browser asks for it. Games are their authors' work and download from their own pages.</p>
+  <p class="note">No cookies, no tracking, and nothing on this page loads from other sites. cartjam builds on Yocto, LÖVE and PPSSPP, and follows ROCKNIX for hardware support.</p>
   <a class="powered" href="https://byehsan.com"><span>powered </span>byehsan.com</a>
 </footer>
-<script src="assets/site.js" type="module"></script>
+<script src="assets/landing.js" type="module"></script>
 </body>
 </html>

@@ -1,6 +1,9 @@
 # cartjam.github.io
 
-The page that puts cartjam on a console: [cartjam.github.io](https://cartjam.github.io). Choose a console, a release and free games, then write the card with Etcher or `flash.sh`. It's plain HTML, CSS and JavaScript with no build step, and it loads nothing from other sites except the release list from GitHub's API.
+cartjam's site, [cartjam.github.io](https://cartjam.github.io). It's plain HTML, CSS and JavaScript with no build step, and it loads nothing from other sites except the release list from GitHub's API.
+
+- `index.html`: the landing page, what cartjam is and how to hear about the first release. The console in it shows real screens from `assets/img/screens/`.
+- `flash.html`: the page that puts cartjam on a console. Choose a console, a release and free games, then write the card with Etcher or `flash.sh`.
 
 ## Adding things
 
@@ -14,6 +17,7 @@ The page that puts cartjam on a console: [cartjam.github.io](https://cartjam.git
 
   A release image must not carry the bring-up pieces (`cartjam-bringup`, passwordless root) or anyone's commercial games.
 
+- **A social account:** its entry in `data/social.json` gets `"claimed": true` once the account is cartjam's. The landing page lists only those, so it never links to a handle someone else holds.
 - **A console:** an entry in `data/consoles.json`. `status` is `available` or `pending`.
 - **A game:** an entry in `data/games.json`, only with a license that lets people share it. Downloads stay on the author's own page. `tested: true` once it has run on a console.
 - **A platform:** set its `status` to `available` in `data/games.json` once the image has its emulator.
