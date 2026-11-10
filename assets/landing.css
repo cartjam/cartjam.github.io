@@ -1,0 +1,88 @@
+/* The landing page, on top of site.css: the console with cartjam's screens, what's in it,
+   how to install, makers and fair play, and how to hear about the first release. */
+:root {
+  --panel-jam: rgb(224 36 94 / 0.18);
+  --jam-light: #ff8fb1;
+}
+
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; }
+.top nav { display: flex; align-items: center; gap: 20px; }
+.top nav a:not(.button) { color: var(--label); font-weight: 500; text-decoration: none; }
+.top nav a:not(.button):hover { color: var(--lid); }
+
+.landing { display: grid; gap: 72px; padding-block: 8px 16px; }
+.landing h2 { display: block; font: 400 clamp(1.7rem, 4.6vw, 2.4rem)/1.1 "Lilita One", "Space Grotesk", sans-serif; margin: 0 0 14px; text-wrap: balance; }
+.landing p { max-width: 62ch; }
+.landing .tag { margin-left: 0; }
+.tag.coming { background: var(--jam-soft); color: var(--jam-light); }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 40px; align-items: center; padding-top: 40px; }
+.eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 14px; color: var(--quiet); font-weight: 500; }
+.lede { margin: 0 0 24px; font-size: 1.15rem; color: var(--quiet); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin: 0; }
+.button.big { padding: 12px 20px; border-radius: 12px; font-size: 1.02rem; }
+
+/* The screens sit in the drawing's screen: x 112.5, y 27, 235 x 176 of 460 x 238 */
+.device { margin: 0; }
+.console { position: relative; isolation: isolate; }
+.console::before {
+  content: "";
+  position: absolute;
+  inset: 12% 8%;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgb(224 36 94 / 0.4), transparent);
+  filter: blur(36px);
+}
+.console svg { display: block; width: 100%; height: auto; }
+.screens { position: absolute; left: 24.457%; top: 11.345%; width: 51.087%; aspect-ratio: 4 / 3; border-radius: 2.1% / 2.8%; overflow: hidden; background: var(--night); }
+.screens img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease; }
+.screens img.on { opacity: 1; }
+.device figcaption { margin-top: 14px; text-align: center; font-size: 0.85rem; color: var(--quiet); }
+.device figcaption b { display: block; color: var(--label); font-size: 0.95rem; font-weight: 600; }
+
+.landing .legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; max-width: none; margin-bottom: 18px; }
+.legend .tag:not(:first-child) { margin-left: 10px; }
+.features { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.features article, .steps-list li, .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.features article { display: grid; align-content: start; gap: 8px; padding: 18px; }
+.features h3 { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin: 0; font: 600 1.05rem/1.3 "Space Grotesk", sans-serif; }
+.features h3 .tag { flex: none; margin-top: 2px; }
+.features p { margin: 0; font-size: 0.95rem; color: var(--quiet); }
+
+.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 40px; align-items: start; }
+.steps-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.steps-list li { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; }
+.steps-list p { margin: 3px 0 0; }
+
+.two-panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: stretch; }
+.panel { padding: 24px; }
+.panel h2 { font-size: clamp(1.5rem, 3.6vw, 1.9rem); }
+.panel p { margin: 0; color: var(--quiet); }
+#fair { background: linear-gradient(160deg, var(--panel-jam), var(--panel) 65%); }
+.plain { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+.plain li { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+.notify {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  background: radial-gradient(120% 140% at 100% 0%, rgb(246 184 60 / 0.14), transparent 55%), var(--panel);
+}
+.notify:has(#follow[hidden]) { grid-template-columns: minmax(0, 1fr); }
+.notify p + p { margin-top: 18px; }
+.notify h3 { margin-top: 0; }
+.social { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.social a { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 12px; background: var(--raised); color: var(--label); text-decoration: none; }
+.social a span { color: var(--quiet); }
+
+@media (max-width: 860px) {
+  .landing { gap: 56px; }
+  .hero, .split, .two-panels, .notify { grid-template-columns: minmax(0, 1fr); }
+  .hero { padding-top: 24px; }
+  .device { max-width: 520px; width: 100%; margin-inline: auto; }
+}
+
+@media (max-width: 520px) {
+  .top nav a:not(.button) { display: none; }
+}

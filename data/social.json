@@ -1,0 +1,6 @@
+[
+  { "id": "x", "name": "X", "handle": "@cartjam", "url": "https://x.com/cartjam", "claimed": false },
+  { "id": "instagram", "name": "Instagram", "handle": "@cartjam", "url": "https://www.instagram.com/cartjam/", "claimed": false },
+  { "id": "tiktok", "name": "TikTok", "handle": "@cartjam", "url": "https://www.tiktok.com/@cartjam", "claimed": false },
+  { "id": "reddit", "name": "Reddit", "handle": "r/cartjam", "url": "https://www.reddit.com/r/cartjam/", "claimed": false }
+]
