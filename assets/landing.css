@@ -70,6 +70,33 @@
   background: radial-gradient(120% 140% at 100% 0%, rgb(246 184 60 / 0.14), transparent 55%), var(--panel);
 }
 .notify:has(#follow[hidden]) { grid-template-columns: minmax(0, 1fr); }
+.notify-main { display: grid; gap: 14px; justify-items: start; }
+.notify-main h2 { margin-bottom: 0; }
+.notify-main p { margin: 0; }
+.waitlist { display: grid; gap: 10px; width: 100%; padding: 18px; border-radius: 14px; background: var(--raised); }
+.waitlist h3 { margin: 0; font: 600 1.1rem/1.3 "Space Grotesk", sans-serif; }
+.field { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.field label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.field input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--night);
+  color: var(--label);
+  font: 500 1rem "Space Grotesk", sans-serif;
+}
+.field input::placeholder { color: var(--quiet); }
+.field input:focus-visible { outline: 3px solid var(--lid); outline-offset: 1px; }
+.field .button { padding: 10px 18px; }
+.button:disabled { opacity: 0.6; cursor: default; }
+.waitlist .note { margin: 0; font-size: 0.85rem; }
+.waitlist .status { min-height: 1.5em; font-weight: 500; color: var(--lid); }
+.waitlist .status:empty { display: none; }
+.trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+/* With the waitlist on, watching releases on GitHub becomes the second choice */
+.has-waitlist #watch { background: var(--raised); }
 .notify p + p { margin-top: 18px; }
 .notify h3 { margin-top: 0; }
 .social { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }

@@ -31,7 +31,7 @@
       <p class="eyebrow"><span class="tag good">In development</span> First console: K36</p>
       <h1>A handheld OS, and a place to make and share&nbsp;games.</h1>
       <p class="lede">cartjam replaces the software on budget retro handhelds. You get a home screen that feels new, a boot you can watch, and only games you're allowed to share.</p>
-      <p class="actions"><a class="button big" href="#notify">Hear about the first release</a> <a href="flash.html">How to install</a></p>
+      <p class="actions"><a class="button big" href="#notify">Get notified</a> <a href="flash.html">How to install</a></p>
     </div>
     <!-- The K36 as the install page draws it (assets/site.js), with cartjam's screens on it -->
     <figure class="device">
@@ -108,10 +108,23 @@
   </section>
 
   <section id="notify" class="panel notify">
-    <div>
-      <h2>Hear about the first release</h2>
-      <p>There's no mailing list, so there's nothing to sign up for. To hear when the first release is out, watch this site on GitHub: choose <b>Watch</b>, then <b>Custom</b>, then <b>Releases</b>.</p>
-      <p><a class="button" href="https://github.com/cartjam/cartjam.github.io">Watch on GitHub</a></p>
+    <div class="notify-main">
+      <h2>Be the first to know</h2>
+      <!-- Shown once data/waitlist.json has the mailing service's form address -->
+      <form id="waitlist" class="waitlist" hidden novalidate>
+        <h3>Tell me when cartjam consoles go on sale</h3>
+        <div class="field">
+          <label for="waitlist-email">Email</label>
+          <input id="waitlist-email" name="EMAIL" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <button class="button" type="submit">Notify me</button>
+        </div>
+        <input class="trap" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="en">
+        <p class="note" id="waitlist-note">One email when consoles go on sale, after you confirm your address. Your address goes to <span id="waitlist-service">our mailing service</span> and nowhere else. <a href="privacy.html">Privacy</a></p>
+        <p class="status" id="waitlist-status" role="status"></p>
+      </form>
+      <p>To hear when a new cartjam release is out, watch this site on GitHub: choose <b>Watch</b>, then <b>Custom</b>, then <b>Releases</b>.</p>
+      <p><a class="button" id="watch" href="https://github.com/cartjam/cartjam.github.io">Watch on GitHub</a></p>
     </div>
     <div id="follow" hidden>
       <h3>Follow the build</h3>

@@ -18,6 +18,7 @@ cartjam's site, [cartjam.github.io](https://cartjam.github.io). It's plain HTML,
   A release image must not carry the bring-up pieces (`cartjam-bringup`, passwordless root) or anyone's commercial games.
 
 - **A social account:** its entry in `data/social.json` gets `"claimed": true` once the account is cartjam's. The landing page lists only those, so it never links to a handle someone else holds.
+- **The waitlist:** `data/waitlist.json` has the mailing service and its form address (`action`, the `https://…sibforms.com/serve/…` address of a Brevo form with double opt-in). While `action` is `null` the form stays hidden and the page offers watching releases on GitHub instead. The form posts straight to the service, so nothing loads from it when the page opens. Turn it on together with a privacy notice at `privacy.html` that says who collects the addresses, how to reach them, and that they go to that service.
 - **A console:** an entry in `data/consoles.json`. `status` is `available` or `pending`.
 - **A game:** an entry in `data/games.json`, only with a license that lets people share it. Downloads stay on the author's own page. `tested: true` once it has run on a console.
 - **A platform:** set its `status` to `available` in `data/games.json` once the image has its emulator.
