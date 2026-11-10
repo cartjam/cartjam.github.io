@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>cartjam: put it on your console</title>
+<meta name="description" content="Choose your handheld, a cartjam release and free games, then write it to an SD card.">
+<meta name="theme-color" content="#17151F">
+<meta property="og:title" content="cartjam">
+<meta property="og:description" content="A handheld OS, and a place to make and share games.">
+<meta property="og:image" content="https://cartjam.github.io/assets/img/social-preview.png">
+<link rel="icon" href="favicon.ico">
+<link rel="preload" href="assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./"><img src="assets/img/mark.svg" alt="" width="30" height="37"><img src="assets/img/wordmark-dark.svg" alt="cartjam" height="26"></a>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>Put cartjam on your&nbsp;console</h1>
+    <p>Pick your handheld and a release, add some free games, and write it all to a microSD&nbsp;card.</p>
+  </section>
+
+  <div class="layout">
+    <aside class="card-summary" aria-live="polite">
+      <div class="console-picture" id="picture"></div>
+      <dl>
+        <div><dt>Console</dt><dd id="sum-console">–</dd></div>
+        <div><dt>Release</dt><dd id="sum-release">–</dd></div>
+        <div><dt>Free games</dt><dd id="sum-games">–</dd></div>
+      </dl>
+    </aside>
+
+    <div class="steps">
+      <section class="step">
+        <h2><span class="n">1</span>Your console</h2>
+        <div class="choices consoles" id="consoles" role="radiogroup" aria-label="Console"></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">2</span>Release</h2>
+        <div class="choices" id="releases" role="radiogroup" aria-label="Release"><p class="note">Looking for releases…</p></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">3</span>Free games</h2>
+        <p class="note">Free to play and share under their authors' licenses. Greyed-out platforms are pending: they join the list as cartjam gets their emulators.</p>
+        <div class="tabs" id="platforms" role="tablist" aria-label="Platform"></div>
+        <div class="games" id="games"></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">4</span>Write the card</h2>
+        <p class="note">A web page isn't allowed to write to an SD card directly, so this step uses a small free tool on your computer.</p>
+        <div class="tabs" id="methods" role="tablist" aria-label="How to write the card">
+          <button role="tab" data-method="etcher" aria-selected="true">Etcher</button>
+          <button role="tab" data-method="terminal" aria-selected="false">Terminal</button>
+        </div>
+        <div id="method-etcher">
+          <ol class="howto">
+            <li><a class="button" id="download" href="#" aria-disabled="true">Download the release</a> <span class="note" id="download-note"></span></li>
+            <li>Install <a href="https://etcher.balena.io">balenaEtcher</a>, open it and choose <b>Flash from file</b>.</li>
+            <li>Pick the file you downloaded, pick your microSD card, and press <b>Flash</b>. It erases the card.</li>
+          </ol>
+        </div>
+        <div id="method-terminal" hidden>
+          <p class="note">For macOS and Linux. It only offers removable disks, checks the download and asks before erasing. It needs <code>xz</code>, which macOS gets with <code>brew install xz</code>.</p>
+          <div class="command"><code id="command">Choose a release first</code><button class="copy" id="copy" type="button">Copy</button></div>
+        </div>
+        <h3>Then, on the console</h3>
+        <ol class="howto">
+          <li>Put the card in the first slot and switch the console on. The first boot makes a drive called <b>GAMES</b>, then shows the home screen.</li>
+          <li id="copy-games">Switch off, put the card back in your computer, and unzip your games into the <code>psp</code> folder on <b>GAMES</b>.</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p class="note">No cookies, no tracking. The release list comes straight from GitHub, which sees your address when your browser asks for it. Games are their authors' work and download from their own pages.</p>
+  <a class="powered" href="https://byehsan.com"><span>powered </span>byehsan.com</a>
+</footer>
+<script src="assets/site.js" type="module"></script>
+</body>
+</html>
